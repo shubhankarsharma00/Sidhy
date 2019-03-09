@@ -50,7 +50,7 @@ class Auth implements BaseAuth {
 
   @override
   Future<dynamic> signIn(String email, String password) {
-    return http.Client().post(apiSignupUrl, body: json.encode({
+    return http.Client().post(apiLoginUrl, body: json.encode({
       'email':email,
       'password':password,
       'returnSecureToken':true,
@@ -60,7 +60,7 @@ class Auth implements BaseAuth {
         loggedIn = false;
         throw(res["error"]["message"]);
       } else {
-        loggedIn = true;      
+        loggedIn = true;
         _currentUser = new User(res['idToken'], email);
       }
     });
