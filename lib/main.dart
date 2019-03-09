@@ -25,7 +25,7 @@ class MyApp extends StatelessWidget {
         // When we navigate to the "/" route, build the FirstScreen Widget
         '/': (context) => LoginPage(auth),
         // When we navigate to the "/second" route, build the DashBoard Widget
-        '/dashboard': (context) => DashBoard(),
+        '/dashboard': (context) => DashBoard(auth),
       },
     );
   }

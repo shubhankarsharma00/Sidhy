@@ -1,11 +1,12 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import '../style/theme.dart' as Theme;
-import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
-import '../widgets/subjectCard.dart';
 import '../widgets/heading.dart';
+import '../auth.dart';
 
 class DashBoard extends StatefulWidget {
+  final BaseAuth auth;
+  DashBoard(this.auth);
+
   @override
   _DashBoardState createState() => _DashBoardState();
 }
@@ -16,6 +17,15 @@ class _DashBoardState extends State<DashBoard> {
     return Scaffold(
       appBar: AppBar(
         title: Text("DASHBOARD"),
+        actions: <Widget>[
+          IconButton(
+            icon: Icon(Icons.eject),
+            onPressed: () {
+              widget.auth.signOut();
+                Navigator.pushReplacementNamed(context,"/");
+            },
+          )
+        ],
       ),
       body: Container(
         child: ListView(

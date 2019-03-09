@@ -6,7 +6,7 @@ abstract class BaseAuth {
   User currentUser();
   Future<dynamic> signIn(String email, String password);
   Future<dynamic> createUser(String email, String password);
-  Future<void> signOut();
+  void signOut();
 }
 
 class User {
@@ -67,8 +67,8 @@ class Auth implements BaseAuth {
   }
 
   @override
-  Future<void> signOut() {
+  void signOut() {
     _currentUser = null;
-    return null;
+    return;
   }
 }
