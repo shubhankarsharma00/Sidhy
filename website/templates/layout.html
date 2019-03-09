@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Doux</title>
+    <script type="text/javascript" src="http://kozea.github.com/pygal.js/javascripts/svg.jquery.js"></script>
+    <script type="text/javascript" src="http://kozea.github.com/pygal.js/javascripts/pygal-tooltips.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" media="screen" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" />
+    <script src="/static/vendor/jquery/jquery.min.js"></script>
+    <style>
+        .abs{
+            position: absolute;
+            bottom: 0;
+            width: 100%;
+        }
+        /* body {
+            background-image: "bg.png";
+        } */
+    </style>
+</head>
+<body background="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQEQfWJjnpfI62ePKYv0s274DytwHGgO43ICR-_HbB7RaISgUU0">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+        <div class="container-fluid">
+                <a class="navbar-brand" href="#"><strong>Doux</strong></a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+                aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav mr-auto">
+                    <li class="nav-item active">
+                        <a class="nav-link" href="/">Home<span class="sr-only">(current)</span></a>
+                    </li>
+                </ul>
+                <ul class="navbar-nav ml-auto">
+                    <form action="#" method="post" class="form-inline my-2 my-lg-0 ml-auto">
+                        <input class="form-control mr-sm-2" name="search_query" type="search" placeholder="Search" aria-label="Search">
+                        <button class="btn btn-outline-dark my-2 my-sm-0" type="submit">Search</button>
+                    </form>
+                </ul>
+            </div>    
+        </div>
+    </nav>
+
+<!-- Page Content -->
+<div class="container">
+
+    <div class="row">
+
+        <div class="col-md-8">
+
+            <h1 class="my-4">{% block heading %}{% endblock %}
+            </h1>
+
+            {% block content %}
+            {% endblock %}
+
+        </div>
+
+    </div>
+    <!-- /.row -->
+
+</div>
+<!-- /.container -->
+
+
+    <!-- Footer -->
+    <footer class="page-footer font-small blue pt-4 abs">
+        <div class="container-fluid text-center text-md-left">
+        </div>
+        <div class="footer-copyright text-center py-3">© 2019 Copyright:
+            <a href="https://www.google.com/"> HAHA LOL</a>
+        </div>
+    </footer>
+    <!-- Footer -->
+
+</body>
+</html>
