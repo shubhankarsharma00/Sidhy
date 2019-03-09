@@ -1,3 +1,3 @@
-# test_flutter
+# Sidhy
 
-A new Flutter project.
+An app that aims to help students.
