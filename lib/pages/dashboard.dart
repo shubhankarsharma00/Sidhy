@@ -11,70 +11,54 @@ class DashBoard extends StatefulWidget {
 }
 
 class _DashBoardState extends State<DashBoard> {
+  final List<String> newsfeed = [
+    "Math Class at 2:30 PM cancelled!",
+    "Football Match at 6PM today"
+  ];
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
         title: Text("DASHBOARD"),
+        backgroundColor: Colors.blue,
       ),
       body: Container(
+        decoration: BoxDecoration(gradient: Theme.Colors.primaryGradient),
         child: ListView(
           padding: EdgeInsets.all(10.0),
-          children: <Widget>[
-            Padding(
-              padding: EdgeInsets.all(20),
-              child: Column(
-                children: <Widget>[
-                  Heading("Ongoing Class"),
-                  _ongoingClass(),
-                ],
-              ),
-            ),
-            Padding(
-              padding: EdgeInsets.all(20),
-              child: Column(
-                children: <Widget>[
-                  Heading("Stats"),
-                  _stats(),
-                ],
-              ),
-            ),
-            Padding(
-              padding: EdgeInsets.all(20),
-              child: Column(
-                children: <Widget>[
-                  Heading("News Feed"),
-                  _newsFeed(),
-                ],
-              ),
-            ),
-          ],
+          children: <Widget>[_ongoingClass(), _newsFeed(), _stats()],
         ),
       ),
     );
   }
 
   Widget _ongoingClass() {
-    return Card(
-      child: Container(
-        height: 100.0,
+    return ListTile(
+      title: Card(
+        child: Container(
+          height: 100.0,
+          child: Heading("Ongoing Class:"),
+        ),
       ),
     );
   }
 
   Widget _stats() {
-    return Card(
-      child: Container(
-        height: 100.0,
+    return ListTile(
+      title: Card(
+        child: Container(
+          height: 100.0,
+        ),
       ),
     );
   }
 
   Widget _newsFeed() {
-    return Card(
-      child: Container(
-        height: 100.0,
-      ),
+    return Column(
+      children: newsfeed.map((String news) {
+        return ListTile(title: Card(child: Heading(news)));
+      }).toList(),
     );
   }
 }
