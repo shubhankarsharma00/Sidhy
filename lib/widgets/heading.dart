@@ -5,9 +5,11 @@ class Heading extends StatelessWidget {
   Heading(this.text);
   @override
   Widget build(BuildContext context) {
-    return Text(
+    return Padding(child: Text(
       text,
-      style: TextStyle(fontSize: 24.0, fontWeight: FontWeight.bold),
+      style:
+          TextStyle(fontSize: 24.0, fontWeight: FontWeight.bold),
+    ), padding: EdgeInsets.all(20.0),
     );
   }
 }

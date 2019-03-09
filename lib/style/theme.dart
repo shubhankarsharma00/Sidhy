@@ -16,4 +16,11 @@ class Colors {
     begin: Alignment.topCenter,
     end: Alignment.bottomCenter,
   );
+
+  static const primaryGradientDark = const LinearGradient(
+    colors: const [const Color(0xFF2299bb), const Color(0xFF337777)],
+    stops: const [0.0, 1.0],
+    begin: Alignment.topCenter,
+    end: Alignment.bottomCenter,
+  );
 }
