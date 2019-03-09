@@ -673,6 +673,11 @@ class _LoginPageState extends State<LoginPage>
   void _signIn() {
     String email = loginEmailController.text;
     String pass = loginPasswordController.text;
+    // FOR TESTING ONLY REMOVE LATER TODO
+    if(email == "" && pass == ""){
+      email = "k@g.com";
+      pass = "123123";
+    }
     widget.auth.signIn(email, pass).then((_){
       Navigator.pushReplacementNamed(context, '/dashboard');
     }).catchError((e){
