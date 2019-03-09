@@ -18,7 +18,7 @@ class Colors {
   );
 
   static const primaryGradientDark = const LinearGradient(
-    colors: const [const Color(0xFF2299bb), const Color(0xFF337777)],
+    colors: const [const Color(0xFFddddff), const Color(0xFF6644ff)],
     stops: const [0.0, 1.0],
     begin: Alignment.topCenter,
     end: Alignment.bottomCenter,

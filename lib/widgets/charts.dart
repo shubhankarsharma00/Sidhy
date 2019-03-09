@@ -3,7 +3,6 @@ import 'package:http/http.dart';
 import 'dart:convert';
 import 'package:charts_flutter/flutter.dart';
 
-
 class ChartWidget extends StatefulWidget {
   @override
   _ChartWidgetState createState() => _ChartWidgetState();
@@ -31,7 +30,13 @@ class _ChartWidgetState extends State<ChartWidget> {
   @override
   Widget build(BuildContext context) {
     return Container(
-      child: loaded ? ChartDisplay(data) : CircularProgressIndicator(),
+      child: loaded
+          ? ChartDisplay(data)
+          : SizedBox(
+              height: 300.0,
+              child: Center(
+                child: CircularProgressIndicator(),
+              )),
       height: 300.0,
     );
   }
@@ -40,6 +45,13 @@ class _ChartWidgetState extends State<ChartWidget> {
 class ChartDisplay extends StatelessWidget {
   final List<int> data;
   ChartDisplay(this.data);
+  final colors = [
+    MaterialPalette.red,
+    MaterialPalette.teal,
+    MaterialPalette.purple,
+    MaterialPalette.green,
+    MaterialPalette.indigo
+  ];
 
   _series() {
     print(this.data);
@@ -53,6 +65,7 @@ class ChartDisplay extends StatelessWidget {
         measureFn: (int datum, int index) {
           return datum;
         },
+        colorFn: (int datum, int index) => colors[index].shadeDefault,
       )
     ];
   }
@@ -60,8 +73,10 @@ class ChartDisplay extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-        child: BarChart(_series(),),
-        height: 300.0,
-      );
+      child: BarChart(
+        _series(),
+      ),
+      height: 300.0,
+    );
   }
 }
