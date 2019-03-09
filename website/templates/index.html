@@ -1,0 +1,11 @@
+{% extends "layout.html" %}
+
+{% block content %}
+<div>
+    {{bar_chart.render()|safe}}
+    {%for question in questions%}
+        <h1>{{question}}</h1>
+    {%endfor%}
+</div>
+
+{% endblock %}
