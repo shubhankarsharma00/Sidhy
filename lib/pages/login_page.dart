@@ -332,9 +332,7 @@ class _LoginPageState extends State<LoginPage>
                           fontFamily: "WorkSansBold"),
                     ),
                   ),
-                  onPressed: () {
-                    Navigator.pushReplacementNamed(context, '/dashboard');
-                  },
+                  onPressed: _signIn,
                 ),
               )
             ],
@@ -672,10 +670,26 @@ class _LoginPageState extends State<LoginPage>
     });
   }
 
-  void _signIn() {}
+  void _signIn() {
+    String email = loginEmailController.text;
+    String pass = loginPasswordController.text;
+    widget.auth.signIn(email, pass).then((_){
+      Navigator.pushReplacementNamed(context, '/dashboard');
+    }).catchError((e){
+      showInSnackBar(e);
+    });
+  }
 
   void _signUp() {
-    widget.auth.createUser('testing@gmail.com', 'password').then((_){
+    String email = signupEmailController.text;
+    String pass = signupPasswordController.text;
+    String pass2 = signupConfirmPasswordController.text;
+    String name = signupNameController.text;
+    if (pass != pass2){
+      showInSnackBar("Passwords do not Match");
+      return;
+    }
+    widget.auth.createUser(email, pass).then((_){
       Navigator.pushReplacementNamed(context, '/dashboard');
     }).catchError((e){
       showInSnackBar(e);

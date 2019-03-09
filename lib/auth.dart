@@ -55,8 +55,14 @@ class Auth implements BaseAuth {
       'password':password,
       'returnSecureToken':true,
     })).then((response) {
-      this.loggedIn = true;
-      _currentUser = new User(json.decode(response.body)['idToken'], email);
+      Map<String, dynamic> res = json.decode(response.body);
+      if (res.containsKey("error")) {
+        loggedIn = false;
+        throw(res["error"]["message"]);
+      } else {
+        loggedIn = true;      
+        _currentUser = new User(res['idToken'], email);
+      }
     });
   }
 
