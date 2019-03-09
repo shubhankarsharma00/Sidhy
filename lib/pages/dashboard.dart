@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import '../widgets/heading.dart';
 import '../auth.dart';
 
+
 class DashBoard extends StatefulWidget {
   final BaseAuth auth;
   DashBoard(this.auth);
@@ -65,11 +66,15 @@ class _DashBoardState extends State<DashBoard> {
   }
 
   Widget _ongoingClass() {
-    return Card(
+    return InkWell(child: Card(
       child: Container(
         height: 100.0,
       ),
-    );
+      
+    ),
+    onTap: (){
+      Navigator.pushNamed(context, '/askdoubt');
+    },);
   }
 
   Widget _stats() {
