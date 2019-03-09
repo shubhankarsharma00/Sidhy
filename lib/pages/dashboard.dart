@@ -29,39 +29,52 @@ class _DashBoardState extends State<DashBoard> {
             icon: Icon(Icons.eject),
             onPressed: () {
               widget.auth.signOut();
-                Navigator.pushReplacementNamed(context,"/");
+              Navigator.pushReplacementNamed(context, "/");
             },
           )
         ],
       ),
       body: Container(
-        decoration: BoxDecoration(gradient: Theme.Colors.primaryGradient),
+        decoration: BoxDecoration(gradient: Theme.Colors.primaryGradientDark),
         child: ListView(
           padding: EdgeInsets.all(10.0),
-          children: <Widget>[_ongoingClass(), _newsFeed(), _stats()],
+          children: <Widget>[
+            Heading("Ongoing Class"),
+            _ongoingClass(),
+            Heading("News Feed"),
+            _newsFeed(),
+            Heading("Stats"),
+            _stats(),
+            SizedBox(height: 100.0),
+          ],
         ),
       ),
     );
   }
 
   Widget _ongoingClass() {
-    return InkWell(child: Card(
-      child: Container(
-        height: 100.0,
-        child: Heading("Ongoing Class:"),
+    return InkWell(
+      child: Card(
+        child: ListTile(
+          title: Container(
+            height: 100.0,
+            child: Heading("Theory Of Computation"),
+          ),
+          trailing: Heading("3-4PM"),
+        ),
       ),
-      
-    ),
-    onTap: (){
-      Navigator.pushNamed(context, '/askdoubt');
-    },);
+      onTap: () {
+        Navigator.pushNamed(context, '/askdoubt');
+      },
+    );
   }
 
   Widget _stats() {
-    return ListTile(
-      title: Card(
-        child: Container(
+    return Card(
+      child: ListTile(
+        title: Container(
           height: 100.0,
+          child: Heading("Attendence Count"),
         ),
       ),
     );
@@ -70,7 +83,7 @@ class _DashBoardState extends State<DashBoard> {
   Widget _newsFeed() {
     return Column(
       children: newsfeed.map((String news) {
-        return ListTile(title: Card(child: Heading(news)));
+        return Card(child: ListTile(title: Heading(news)));
       }).toList(),
     );
   }
