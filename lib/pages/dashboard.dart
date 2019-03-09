@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import '../widgets/heading.dart';
+import '../widgets/charts.dart';
 import '../auth.dart';
 import '../style/theme.dart' as Theme;
 import 'package:wave/wave.dart';
@@ -43,33 +44,12 @@ class _DashBoardState extends State<DashBoard> {
           children: <Widget>[
             Heading("Ongoing Class"),
             _ongoingClass(),
-            Heading("News Feed"),
-            _newsFeed(),
             Heading("Stats"),
             _stats(),
+            Heading("News Feed"),
+            _newsFeed(),
             SizedBox(height: 50.0),
-            SizedBox(
-              height: 100.0,
-              child: 
-                 WaveWidget(
-                  config: CustomConfig(
-                    gradients: [
-                      [Colors.red, Color(0xEEF44336)],
-                      [Colors.red[800], Color(0x77E57373)],
-                      [Colors.orange, Color(0x66FF9800)],
-                      [Colors.yellow, Color(0x55FFEB3B)]
-                    ],
-                    durations: [35000, 19440, 10800, 6000],
-                    heightPercentages: [0.20, 0.23, 0.25, 0.30],
-                    blur: MaskFilter.blur(BlurStyle.solid, 10),
-                    gradientBegin: Alignment.bottomLeft,
-                    gradientEnd: Alignment.topRight,
-                  ),
-                  // backgroundColor: Colors.blue,
-                  size: Size(double.infinity, double.infinity),
-                ),
-              
-            ),
+            _bottomWave(),
           ],
         ),
       ),
@@ -95,11 +75,16 @@ class _DashBoardState extends State<DashBoard> {
 
   Widget _stats() {
     return Card(
-      child: ListTile(
-        title: Container(
-          height: 100.0,
-          child: Heading("Attendence Count"),
-        ),
+      child: Column(
+        children: <Widget>[
+          ListTile(
+            title: Container(
+              height: 100.0,
+              child: Heading("Attendence Count"),
+            ),
+          ),
+          ChartWidget(),
+        ],
       ),
     );
   }
@@ -111,4 +96,28 @@ class _DashBoardState extends State<DashBoard> {
       }).toList(),
     );
   }
+
+  Widget _bottomWave(){
+    return SizedBox(
+              height: 100.0,
+              child: WaveWidget(
+                config: CustomConfig(
+                  gradients: [
+                    [Colors.red, Color(0xEEF44336)],
+                    [Colors.red[800], Color(0x77E57373)],
+                    [Colors.orange, Color(0x66FF9800)],
+                    [Colors.yellow, Color(0x55FFEB3B)]
+                  ],
+                  durations: [35000, 19440, 10800, 6000],
+                  heightPercentages: [0.20, 0.23, 0.25, 0.30],
+                  blur: MaskFilter.blur(BlurStyle.solid, 10),
+                  gradientBegin: Alignment.bottomLeft,
+                  gradientEnd: Alignment.topRight,
+                ),
+                // backgroundColor: Colors.blue,
+                size: Size(double.infinity, double.infinity),
+              ),
+    );
+  }
+  
 }
