@@ -31,6 +31,8 @@ dependencies:
   flutter_fluid_slider: ^0.0.1
   wave: ^0.0.8
   charts_flutter: ^0.6.0
+  
+  
 
 dev_dependencies:
   flutter_test:
