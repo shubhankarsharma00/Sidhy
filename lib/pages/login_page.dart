@@ -1,11 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import '../auth.dart';
 import '../style/theme.dart' as Theme;
 import '../utils/bubble_indication_painter.dart';
 
 class LoginPage extends StatefulWidget {
-  LoginPage({Key key}) : super(key: key);
+  final BaseAuth auth;
+
+  LoginPage(this.auth, {Key key}) : super(key: key);
 
   @override
   _LoginPageState createState() => new _LoginPageState();
@@ -617,21 +620,22 @@ class _LoginPageState extends State<LoginPage>
                       tileMode: TileMode.clamp),
                 ),
                 child: MaterialButton(
-                    highlightColor: Colors.transparent,
-                    splashColor: Theme.Colors.loginGradientEnd,
-                    //shape: RoundedRectangleBorder(borderRadius: BorderRadius.all(Radius.circular(5.0))),
-                    child: Padding(
-                      padding: const EdgeInsets.symmetric(
-                          vertical: 10.0, horizontal: 42.0),
-                      child: Text(
-                        "SIGN UP",
-                        style: TextStyle(
-                            color: Colors.white,
-                            fontSize: 25.0,
-                            fontFamily: "WorkSansBold"),
-                      ),
+                  highlightColor: Colors.transparent,
+                  splashColor: Theme.Colors.loginGradientEnd,
+                  // shape: RoundedRectangleBorder(borderRadius: BorderRadius.all(Radius.circular(5.0))),
+                  child: Padding(
+                    padding: const EdgeInsets.symmetric(
+                        vertical: 10.0, horizontal: 42.0),
+                    child: Text(
+                      "SIGN UP",
+                      style: TextStyle(
+                          color: Colors.white,
+                          fontSize: 25.0,
+                          fontFamily: "WorkSansBold"),
                     ),
-                    onPressed: () => showInSnackBar("SignUp button pressed")),
+                  ),
+                  onPressed: _signUp,
+                ),
               ),
             ],
           ),
@@ -665,6 +669,16 @@ class _LoginPageState extends State<LoginPage>
   void _toggleSignupConfirm() {
     setState(() {
       _obscureTextSignupConfirm = !_obscureTextSignupConfirm;
+    });
+  }
+
+  void _signIn() {}
+
+  void _signUp() {
+    widget.auth.createUser('testing@gmail.com', 'password').then((_){
+      Navigator.pushReplacementNamed(context, '/dashboard');
+    }).catchError((e){
+      showInSnackBar(e);
     });
   }
 }

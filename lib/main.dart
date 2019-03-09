@@ -1,11 +1,15 @@
 import 'package:flutter/material.dart';
-import 'package:test_flutter/pages/dashboard.dart';
-import 'pages/login_page.dart';
+import './pages/dashboard.dart';
+import './pages/login_page.dart';
+import './auth.dart';
 
 void main() => runApp(MyApp());
 
 
 class MyApp extends StatelessWidget {
+
+  final BaseAuth auth = new Auth();
+
   @override
   Widget build(BuildContext context) {
     return new MaterialApp(
@@ -19,7 +23,7 @@ class MyApp extends StatelessWidget {
       initialRoute: '/',
       routes: {
         // When we navigate to the "/" route, build the FirstScreen Widget
-        '/': (context) => LoginPage(),
+        '/': (context) => LoginPage(auth),
         // When we navigate to the "/second" route, build the DashBoard Widget
         '/dashboard': (context) => DashBoard(),
       },
