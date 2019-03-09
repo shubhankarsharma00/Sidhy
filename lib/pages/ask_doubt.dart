@@ -3,6 +3,7 @@ import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'package:flutter_fluid_slider/flutter_fluid_slider.dart';
 import 'package:http/http.dart' as http;
+import '../style/theme.dart' as Theme;
 
 class AskDoubt extends StatefulWidget {
   @override
@@ -18,9 +19,10 @@ class _AskDoubtState extends State<AskDoubt> {
     return Scaffold(
       appBar: AppBar(
         title: Text("Ask a Doubt"),
+        backgroundColor: Theme.Colors.darkColor,
       ),
       body: Container(
-        color: Colors.grey,
+        color: Theme.Colors.primaryColorDarker,
         child: ListView(
           padding: EdgeInsets.all(10.0),
           children: <Widget>[
@@ -37,6 +39,7 @@ class _AskDoubtState extends State<AskDoubt> {
                     SizedBox(height: 100.0),
                     FluidSlider(
                       value: _value,
+                      sliderColor: Theme.Colors.accentColor,
                       onChanged: (double newValue) {
                         setState(() {
                           _value = newValue;
