@@ -26,7 +26,7 @@ class _DashBoardState extends State<DashBoard> {
     return Scaffold(
       appBar: AppBar(
         title: Text("DASHBOARD"),
-        backgroundColor: Colors.blue,
+        backgroundColor: Theme.Colors.darkColor,
         actions: <Widget>[
           IconButton(
             icon: Icon(Icons.eject),
@@ -42,11 +42,11 @@ class _DashBoardState extends State<DashBoard> {
         child: ListView(
           // padding: EdgeInsets.all(10.0),
           children: <Widget>[
-            Heading("Ongoing Class"),
+            Heading("Ongoing Class", color: Theme.Colors.lightColor,),
             _ongoingClass(),
-            Heading("Stats"),
+            Heading("Stats", color: Theme.Colors.lightColor,),
             _stats(),
-            Heading("News Feed"),
+            Heading("News Feed", color: Theme.Colors.lightColor,),
             _newsFeed(),
             SizedBox(height: 50.0),
             _bottomWave(),
@@ -80,7 +80,7 @@ class _DashBoardState extends State<DashBoard> {
           ListTile(
             title: Container(
               height: 100.0,
-              child: Heading("Attendence Count"),
+              child: Heading("Attendance Count"),
             ),
           ),
           ChartWidget(),
