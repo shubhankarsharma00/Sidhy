@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import './pages/dashboard.dart';
 import './pages/login_page.dart';
 import './auth.dart';
+import './pages/ask_doubt.dart';
 
 void main() => runApp(MyApp());
 
@@ -25,7 +26,8 @@ class MyApp extends StatelessWidget {
         // When we navigate to the "/" route, build the FirstScreen Widget
         '/': (context) => LoginPage(auth),
         // When we navigate to the "/second" route, build the DashBoard Widget
-        '/dashboard': (context) => DashBoard(),
+        '/dashboard': (context) => DashBoard(auth),
+        '/askdoubt' : (context) => AskDoubt(),
       },
     );
   }
