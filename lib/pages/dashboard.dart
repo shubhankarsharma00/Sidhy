@@ -73,7 +73,7 @@ class _DashBoardState extends State<DashBoard> {
       
     ),
     onTap: (){
-      Navigator.pushReplacementNamed(context, '/askdoubt');
+      Navigator.pushNamed(context, '/askdoubt');
     },);
   }
 
