@@ -5,7 +5,7 @@ from config import *
 import requests
 import pygal
 import sys
-from firebase import firebase
+
 from flask import Flask
 
 
