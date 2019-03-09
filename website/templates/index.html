@@ -6,11 +6,17 @@
         {{bar_chart.render()|safe}}
     </div>
     <div class="col-sm-4">
-        <ul class="list-group"> Questions:
-        {%for question in questions%}
-            <li class="list-group-item">{{question}}   <a href="#" class="btn btn-primary" action>Dismiss</a></li>
-        {%endfor%}
-        </ul>
+    	<div class="row-sm-8">
+	        <ul class="list-group"> Questions:
+	        {%for question in questions%}
+	            <li class="list-group-item">{{question}}   <a href="#" class="btn btn-primary" action>Dismiss</a></li>
+	        {%endfor%}
+	        </ul>
+	    </div>
+        <div class="row-sm-4">
+        	{{pie_chart.render()|safe}}	
+        </div>
+        
     </div>
 </div>
 
