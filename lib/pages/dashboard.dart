@@ -19,8 +19,7 @@ class DashBoard extends StatefulWidget {
 }
 
 class _DashBoardState extends State<DashBoard> {
-  Widget alertDialog =AlertDialoge();
-
+  Widget alertDialog = AlertDialoge();
 
   @override
   Widget build(BuildContext context) {
@@ -30,6 +29,14 @@ class _DashBoardState extends State<DashBoard> {
         backgroundColor: Theme.Colors.accentColor,
         actions: <Widget>[
           IconButton(
+            icon: Icon(Icons.add),
+            onPressed: () {
+              showDialog(
+                  context: context,
+                  builder: (BuildContext context) => AlertDialoge());
+            },
+          ),
+          IconButton(
             icon: Icon(Icons.eject),
             onPressed: () {
               widget.auth.signOut();
@@ -37,13 +44,11 @@ class _DashBoardState extends State<DashBoard> {
             },
           ),
           IconButton(
-            icon: Icon(Icons.add),
+            icon: Icon(Icons.refresh),
             onPressed: () {
-              showDialog(
-                  context: context,
-                  builder: (BuildContext context) => AlertDialoge());
+              Navigator.pushReplacementNamed(context, "/dashboard");
             },
-          )
+          ),
         ],
       ),
       drawer: Drawer(
@@ -52,8 +57,7 @@ class _DashBoardState extends State<DashBoard> {
           child: ListView(
             children: <Widget>[
               UserAccountsDrawerHeader(
-                decoration:
-                    BoxDecoration(color: Theme.Colors.darkColor),
+                decoration: BoxDecoration(color: Theme.Colors.darkColor),
                 accountName: Text("User"),
                 accountEmail: Text(widget.auth.currentUser().email),
                 currentAccountPicture: CircleAvatar(

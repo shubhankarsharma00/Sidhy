@@ -20,17 +20,17 @@ class _NewsFeedState extends State<NewsFeed> {
 
   @override
   Widget build(BuildContext context) {
+     getNewsfeed();
     List<Widget>tagList=[RaisedButton(color:Theme.Colors.lightColor,child: Text("All"),onPressed: (){
       setState(() {
         query="All";
-        getNewsfeed();
+       
       });
     },)];
     tagList.addAll(tags.map((String tag){
       return RaisedButton(color:Theme.Colors.lightColor, onPressed: (){
         setState(() {
           query=tag;
-          getNewsfeed();
         });
       },child: Text(tag),);
     }));
