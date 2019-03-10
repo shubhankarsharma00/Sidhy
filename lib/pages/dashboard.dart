@@ -128,9 +128,9 @@ class _DashBoardState extends State<DashBoard> {
         child: ListTile(
           title: Container(
             height: 100.0,
-            child: Heading("Theory Of Computation"),
+            child: Heading("Theory Of Computation", size: 28.0,),
           ),
-          trailing: Heading("3-4PM"),
+          trailing: Heading("3:00 pm", size: 34.0, wt: FontWeight.normal,),
         ),
       ),
       onTap: () {
@@ -146,12 +146,12 @@ class _DashBoardState extends State<DashBoard> {
           children: <Widget>[
             ListTile(
               title: Container(
-                height: 100.0,
+                height: 55.0,
                 child: Heading("Attendance Count"),
               ),
             ),
             // ChartWidget(),
-            Image.asset("assets/chart.png"),
+            Image.asset("assets/chart.png",),
           ],
         ),
       ),
