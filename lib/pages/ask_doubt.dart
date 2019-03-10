@@ -20,7 +20,7 @@ class _AskDoubtState extends State<AskDoubt> {
     return Scaffold(
       appBar: AppBar(
         title: Text("Classroom"),
-        backgroundColor: Theme.Colors.darkColor,
+        backgroundColor: Theme.Colors.accentColor,
       ),
       body: Container(
         color: Theme.Colors.primaryColorDarker,

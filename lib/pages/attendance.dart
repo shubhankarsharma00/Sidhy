@@ -21,7 +21,7 @@ class _AttendancePageState extends State<AttendancePage> {
     return Scaffold(
       appBar: AppBar(
         title: Text("Manage Attendance"),
-        backgroundColor: Theme.Colors.darkColor,
+        backgroundColor: Theme.Colors.accentColor,
       ),
       body: ListView(children: <Widget>[
         ListTile(

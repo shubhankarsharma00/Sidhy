@@ -327,7 +327,7 @@ class _LoginPageState extends State<LoginPage>
                     child: Text(
                       "LOGIN",
                       style: TextStyle(
-                          color: Colors.white,
+                          color: Colors.black,
                           fontSize: 25.0,
                           fontFamily: "WorkSansBold"),
                     ),
@@ -345,7 +345,7 @@ class _LoginPageState extends State<LoginPage>
                 "Forgot Password?",
                 style: TextStyle(
                   decoration: TextDecoration.underline,
-                  color: Colors.white,
+                  color: Colors.black,
                   fontSize: 16.0,
                   fontFamily: "WorkSansMedium",
                 ),
@@ -361,8 +361,8 @@ class _LoginPageState extends State<LoginPage>
                   decoration: BoxDecoration(
                     gradient: new LinearGradient(
                         colors: [
-                          Colors.white10,
-                          Colors.white,
+                          Colors.black,
+                          Colors.black,
                         ],
                         begin: const FractionalOffset(0.0, 0.0),
                         end: const FractionalOffset(1.0, 1.0),
@@ -377,7 +377,7 @@ class _LoginPageState extends State<LoginPage>
                   child: Text(
                     "Or",
                     style: TextStyle(
-                        color: Colors.white,
+                        color: Colors.black,
                         fontSize: 16.0,
                         fontFamily: "WorkSansMedium"),
                   ),
@@ -386,8 +386,8 @@ class _LoginPageState extends State<LoginPage>
                   decoration: BoxDecoration(
                     gradient: new LinearGradient(
                         colors: [
-                          Colors.white,
-                          Colors.white10,
+                          Colors.black,
+                          Colors.black,
                         ],
                         begin: const FractionalOffset(0.0, 0.0),
                         end: const FractionalOffset(1.0, 1.0),
@@ -415,7 +415,7 @@ class _LoginPageState extends State<LoginPage>
                     ),
                     child: new Icon(
                       FontAwesomeIcons.facebookF,
-                      color: Color(0xFF0084ff),
+                      color: Colors.blue,
                     ),
                   ),
                 ),
@@ -432,7 +432,7 @@ class _LoginPageState extends State<LoginPage>
                     ),
                     child: new Icon(
                       FontAwesomeIcons.google,
-                      color: Color(0xFF0084ff),
+                      color: Colors.blue,
                     ),
                   ),
                 ),

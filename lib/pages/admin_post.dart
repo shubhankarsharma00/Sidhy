@@ -13,7 +13,7 @@ class _AdminPostState extends State<AdminPost> {
     return Scaffold(
       appBar: AppBar(
         title: Text("Post News"),
-        backgroundColor: Theme.Colors.darkColor,
+        backgroundColor: Theme.Colors.accentColor,
       ),
       body: Container(
         child: Column(

@@ -29,7 +29,7 @@ class _DashBoardState extends State<DashBoard> {
     return Scaffold(
       appBar: AppBar(
         title: Text("DASHBOARD"),
-        backgroundColor: Theme.Colors.darkColor,
+        backgroundColor: Theme.Colors.accentColor,
         actions: <Widget>[
           IconButton(
             icon: Icon(Icons.eject),
@@ -50,19 +50,19 @@ class _DashBoardState extends State<DashBoard> {
       ),
       drawer: Drawer(
         child: Container(
-          color: Theme.Colors.accentColor,
+          color: Theme.Colors.primaryColor,
           child: ListView(
             children: <Widget>[
               UserAccountsDrawerHeader(
                 decoration:
-                    BoxDecoration(color: Theme.Colors.primaryColorDarker),
+                    BoxDecoration(color: Theme.Colors.darkColor),
                 accountName: Text("User"),
                 accountEmail: Text(widget.auth.currentUser().email),
                 currentAccountPicture: CircleAvatar(
-                  backgroundColor: Theme.Colors.darkColor,
+                  backgroundColor: Theme.Colors.accentColor,
                   child: Text(
                     widget.auth.currentUser().email.substring(0, 1),
-                    style: TextStyle(fontSize: 40.0),
+                    style: TextStyle(fontSize: 40.0, color: Colors.white),
                   ),
                 ),
               ),
@@ -178,12 +178,12 @@ class _DashBoardState extends State<DashBoard> {
         config: CustomConfig(
           gradients: [
             [Colors.red, Color(0xEEF44336)],
-            [Colors.red[800], Color(0x77E57373)],
             [Colors.orange, Color(0x66FF9800)],
-            [Colors.yellow, Color(0x55FFEB3B)]
+            [Colors.yellow, Color(0x55FFEB3B)],
+            [Colors.red[800], Color(0x77E57373)],
           ],
           durations: [35000, 19440, 10800, 6000],
-          heightPercentages: [0.20, 0.23, 0.25, 0.30],
+          heightPercentages: [0.20, 0.23, 0.05, 0.10],
           blur: MaskFilter.blur(BlurStyle.solid, 10),
           gradientBegin: Alignment.bottomLeft,
           gradientEnd: Alignment.topRight,
