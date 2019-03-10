@@ -19,7 +19,7 @@ class _AskDoubtState extends State<AskDoubt> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("Ask a Doubt"),
+        title: Text("Classroom"),
         backgroundColor: Theme.Colors.darkColor,
       ),
       body: Container(

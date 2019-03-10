@@ -18,7 +18,7 @@ class DashBoard extends StatefulWidget {
 }
 
 class _DashBoardState extends State<DashBoard> {
-  Widget alertDialog =AlertDialoge();
+  Widget alertDialog = AlertDialoge();
   final List<String> newsfeed = [
     "Math Class at 2:30 PM cancelled!",
     "Football Match at 6PM today"
@@ -42,12 +42,57 @@ class _DashBoardState extends State<DashBoard> {
             icon: Icon(Icons.add),
             onPressed: () {
               showDialog(
-                  context: context, builder: (BuildContext) => AlertDialoge());
+                  context: context, builder: (BuildContext context) => AlertDialoge());
             },
           )
         ],
       ),
-      
+      drawer: Drawer(
+        child: Container(
+          color: Theme.Colors.accentColor,
+          child: ListView(
+            children: <Widget>[
+              UserAccountsDrawerHeader(
+                decoration:
+                    BoxDecoration(color: Theme.Colors.primaryColorDarker),
+                accountName: Text("ABCD"),
+                accountEmail: Text("abcd@gmail.com"),
+                currentAccountPicture: CircleAvatar(
+                  backgroundColor: Theme.Colors.darkColor,
+                  child: Text(
+                    "A",
+                    style: TextStyle(fontSize: 40.0),
+                  ),
+                ),
+              ),
+              ListTile(
+                title: Text("Dashboard"),
+                trailing: Icon(Icons.arrow_forward),
+                onTap: () {
+                  Navigator.pop(context);
+                },
+              ),
+              ListTile(
+                title: Text("ClassRoom"),
+                trailing: Icon(Icons.arrow_forward),
+                onTap: () {
+                  Navigator.pop(context);
+                  Navigator.pushNamed(context, '/askdoubt');
+                },
+              ),
+              ListTile(
+                title: Text("Admin Post"),
+                trailing: Icon(Icons.arrow_forward),
+                onTap: () {
+                  Navigator.pop(context);
+                   showDialog(
+                  context: context, builder: (BuildContext context) => AlertDialoge());
+                },
+              ),
+            ],
+          ),
+        ),
+      ),
       body: Container(
         decoration: BoxDecoration(gradient: Theme.Colors.primaryGradientDark),
         child: ListView(
