@@ -40,12 +40,60 @@ class _DashBoardState extends State<DashBoard> {
             icon: Icon(Icons.add),
             onPressed: () {
               showDialog(
-                  context: context, builder: (BuildContext) => AlertDialoge());
+                  context: context,
+                  builder: (BuildContext context) => AlertDialoge());
             },
           )
         ],
       ),
-      
+      drawer: Drawer(
+        child: Container(
+          color: Theme.Colors.accentColor,
+          child: ListView(
+            children: <Widget>[
+              UserAccountsDrawerHeader(
+                decoration:
+                    BoxDecoration(color: Theme.Colors.primaryColorDarker),
+                accountName: Text("User"),
+                accountEmail: Text(widget.auth.currentUser().email),
+                currentAccountPicture: CircleAvatar(
+                  backgroundColor: Theme.Colors.darkColor,
+                  child: Text(
+                    widget.auth.currentUser().email.substring(0, 1),
+                    style: TextStyle(fontSize: 40.0),
+                  ),
+                ),
+              ),
+              ListTile(
+                title: Text("Dashboard"),
+                trailing: Icon(Icons.arrow_forward),
+                onTap: () {
+                  Navigator.pop(context);
+                },
+              ),
+              ListTile(
+                title: Text("ClassRoom"),
+                trailing: Icon(Icons.arrow_forward),
+                onTap: () {
+                  Navigator.pop(context);
+                  Navigator.pushNamed(context, '/askdoubt');
+                },
+              ),
+              ListTile(
+                title: Text("Admin Post"),
+                trailing: Icon(Icons.arrow_forward),
+                onTap: () {
+                  Navigator.pop(context);
+                  showDialog(
+                    context: context,
+                    builder: (BuildContext context) => AlertDialoge(),
+                  );
+                },
+              ),
+            ],
+          ),
+        ),
+      ),
       body: Container(
         decoration: BoxDecoration(gradient: Theme.Colors.primaryGradientDark),
         child: ListView(
@@ -60,7 +108,7 @@ class _DashBoardState extends State<DashBoard> {
               "Stats",
               color: Theme.Colors.lightColor,
             ),
-            _stats(),
+            _stats(context),
             Heading(
               "News Feed",
               color: Theme.Colors.lightColor,
@@ -91,7 +139,7 @@ class _DashBoardState extends State<DashBoard> {
     );
   }
 
-  Widget _stats() {
+  Widget _stats(BuildContext context) {
     return InkWell(
       child: Card(
         child: Column(
@@ -102,11 +150,13 @@ class _DashBoardState extends State<DashBoard> {
                 child: Heading("Attendance Count"),
               ),
             ),
-            ChartWidget(),
+            // ChartWidget(),
           ],
         ),
       ),
-      onTap: () {},
+      onTap: () {
+        Navigator.pushNamed(context, "/attendance");
+      },
     );
   }
 

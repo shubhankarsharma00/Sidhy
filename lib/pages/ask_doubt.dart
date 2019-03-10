@@ -19,7 +19,7 @@ class _AskDoubtState extends State<AskDoubt> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("Ask a Doubt"),
+        title: Text("Classroom"),
         backgroundColor: Theme.Colors.darkColor,
       ),
       body: Container(
@@ -28,8 +28,6 @@ class _AskDoubtState extends State<AskDoubt> {
           padding: EdgeInsets.all(10.0),
           children: <Widget>[
             _confidenceCard(),
-            // TODO: Check from background if question asked
-            // and show only then. Also implement timer
             MCQCard(),
             _doubtCard(),
           ],
