@@ -153,6 +153,7 @@ class _DashBoardState extends State<DashBoard> {
               ),
             ),
             // ChartWidget(),
+            Image.asset("assets/chart.png"),
           ],
         ),
       ),
