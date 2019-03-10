@@ -20,7 +20,6 @@ class _NewsFeedState extends State<NewsFeed> {
 
   @override
   Widget build(BuildContext context) {
-    print(query);
     List<Widget>tagList=[RaisedButton(color:Theme.Colors.lightColor,child: Text("All"),onPressed: (){
       setState(() {
         query="All";
@@ -47,14 +46,6 @@ class _NewsFeedState extends State<NewsFeed> {
     return Column(
       children: lst,
     );
-    //  Row(
-    //     children:
-    //   );
-    // }
-    //   children: news.map((String news_new) {
-    //     return Card(child: ListTile(title: Heading(news_new)));
-    //   }).toList(),
-    // );
   }
 
   void getNewsfeed() {
