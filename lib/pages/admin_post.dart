@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import '../style/theme.dart' as Theme;
 import 'package:http/http.dart' as http;
 import 'dart:convert';
+import 'package:intl/intl.dart';
 
 class AdminPost extends StatefulWidget {
   @override
@@ -11,7 +12,6 @@ class AdminPost extends StatefulWidget {
 class _AdminPostState extends State<AdminPost> {
   TextEditingController adminpost = new TextEditingController();
   TextEditingController tags = new TextEditingController();
-  var now = new DateTime.now();
 
   @override
   Widget build(BuildContext context) {
@@ -22,7 +22,6 @@ class _AdminPostState extends State<AdminPost> {
       ),
       body: Container(
         child: ListView(
-          // mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
             SizedBox(height: 30.0),
             Padding(
@@ -55,8 +54,7 @@ class _AdminPostState extends State<AdminPost> {
                 onPressed: () {
                   setState(() {
                     postNewsfeed();
-                    // post[tags.text] = adminpost.text + "\n" + now.toString();
-                    // print(post);
+                    Navigator.pop(context);
                   });
                 },
               ),
@@ -73,10 +71,13 @@ class _AdminPostState extends State<AdminPost> {
       Map<String, dynamic> data = json.decode(res.body);
       Map<String, dynamic> newsfeed = data['NewsFeed'];
 
+      DateTime now = new DateTime.now();
+      String formattedDate = DateFormat('kk:mm:ss \n EEE d MMM').format(now);
+
       if (newsfeed[tags.text] != null) {
-        newsfeed[tags.text].add(adminpost.text + "\n\n" + now.toString());
+        newsfeed[tags.text].add(adminpost.text + "\n\nPosted by admin on " + formattedDate);
       } else {
-        newsfeed[tags.text] = [adminpost.text + "\n\nDate" + now.toString()];
+        newsfeed[tags.text] = [adminpost.text + "\n\nPosted by admin " + formattedDate];
       }
 
       http.Client().put(dburl, body: json.encode(data)).then((_) {
