@@ -6,9 +6,11 @@ import '../auth.dart';
 import '../style/theme.dart' as Theme;
 import 'package:wave/wave.dart';
 import 'package:wave/config.dart';
+import '../widgets/alertDialog.dart';
 
 class DashBoard extends StatefulWidget {
   final BaseAuth auth;
+
   DashBoard(this.auth);
 
   @override
@@ -16,6 +18,7 @@ class DashBoard extends StatefulWidget {
 }
 
 class _DashBoardState extends State<DashBoard> {
+  Widget alertDialog =AlertDialoge();
   final List<String> newsfeed = [
     "Math Class at 2:30 PM cancelled!",
     "Football Match at 6PM today"
@@ -34,19 +37,36 @@ class _DashBoardState extends State<DashBoard> {
               widget.auth.signOut();
               Navigator.pushReplacementNamed(context, "/");
             },
+          ),
+          IconButton(
+            icon: Icon(Icons.add),
+            onPressed: () {
+              showDialog(
+                  context: context, builder: (BuildContext) => AlertDialoge());
+            },
           )
         ],
       ),
+      
       body: Container(
         decoration: BoxDecoration(gradient: Theme.Colors.primaryGradientDark),
         child: ListView(
           // padding: EdgeInsets.all(10.0),
           children: <Widget>[
-            Heading("Ongoing Class", color: Theme.Colors.lightColor,),
+            Heading(
+              "Ongoing Class",
+              color: Theme.Colors.lightColor,
+            ),
             _ongoingClass(),
-            Heading("Stats", color: Theme.Colors.lightColor,),
+            Heading(
+              "Stats",
+              color: Theme.Colors.lightColor,
+            ),
             _stats(),
-            Heading("News Feed", color: Theme.Colors.lightColor,),
+            Heading(
+              "News Feed",
+              color: Theme.Colors.lightColor,
+            ),
             _newsFeed(),
             SizedBox(height: 50.0),
             _bottomWave(),
@@ -74,18 +94,21 @@ class _DashBoardState extends State<DashBoard> {
   }
 
   Widget _stats() {
-    return Card(
-      child: Column(
-        children: <Widget>[
-          ListTile(
-            title: Container(
-              height: 100.0,
-              child: Heading("Attendance Count"),
+    return InkWell(
+      child: Card(
+        child: Column(
+          children: <Widget>[
+            ListTile(
+              title: Container(
+                height: 100.0,
+                child: Heading("Attendance Count"),
+              ),
             ),
-          ),
-          ChartWidget(),
-        ],
+            ChartWidget(),
+          ],
+        ),
       ),
+      onTap: () {},
     );
   }
 
@@ -97,27 +120,26 @@ class _DashBoardState extends State<DashBoard> {
     );
   }
 
-  Widget _bottomWave(){
+  Widget _bottomWave() {
     return SizedBox(
-              height: 100.0,
-              child: WaveWidget(
-                config: CustomConfig(
-                  gradients: [
-                    [Colors.red, Color(0xEEF44336)],
-                    [Colors.red[800], Color(0x77E57373)],
-                    [Colors.orange, Color(0x66FF9800)],
-                    [Colors.yellow, Color(0x55FFEB3B)]
-                  ],
-                  durations: [35000, 19440, 10800, 6000],
-                  heightPercentages: [0.20, 0.23, 0.25, 0.30],
-                  blur: MaskFilter.blur(BlurStyle.solid, 10),
-                  gradientBegin: Alignment.bottomLeft,
-                  gradientEnd: Alignment.topRight,
-                ),
-                // backgroundColor: Colors.blue,
-                size: Size(double.infinity, double.infinity),
-              ),
+      height: 100.0,
+      child: WaveWidget(
+        config: CustomConfig(
+          gradients: [
+            [Colors.red, Color(0xEEF44336)],
+            [Colors.red[800], Color(0x77E57373)],
+            [Colors.orange, Color(0x66FF9800)],
+            [Colors.yellow, Color(0x55FFEB3B)]
+          ],
+          durations: [35000, 19440, 10800, 6000],
+          heightPercentages: [0.20, 0.23, 0.25, 0.30],
+          blur: MaskFilter.blur(BlurStyle.solid, 10),
+          gradientBegin: Alignment.bottomLeft,
+          gradientEnd: Alignment.topRight,
+        ),
+        // backgroundColor: Colors.blue,
+        size: Size(double.infinity, double.infinity),
+      ),
     );
   }
-  
 }

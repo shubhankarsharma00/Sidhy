@@ -8,11 +8,17 @@
     <div class="col-sm-4">
     	<div class="row-sm-8">
 	        <ul class="list-group"> Questions:
-	        {%for question in questions%}
-	            <li class="list-group-item">{{question}}   <a href="#" class="btn btn-primary" action>Dismiss</a></li>
-	        {%endfor%}
+			{%for s,question in questions%}
+			{%if question != '0'%}
+	            <li class="list-group-item">{{question}}   <a href="/delete/{{s}}" class="btn btn-primary">Dismiss</a></li>
+			{%endif%}
+			{%endfor%}
 	        </ul>
 	    </div>
+	    <br><br>
+	    <br><br>
+	    <br><br>
+	    <br>
         <div class="row-sm-4">
         	{{pie_chart.render()|safe}}	
         </div>

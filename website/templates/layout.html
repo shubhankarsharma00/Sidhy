@@ -3,9 +3,28 @@
 <head>
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Doux</title>
+    <title>Sidhy</title>
     <script type="text/javascript" src="http://kozea.github.com/pygal.js/javascripts/svg.jquery.js"></script>
     <script type="text/javascript" src="http://kozea.github.com/pygal.js/javascripts/pygal-tooltips.js"></script>
+    <script>
+    function myFunction() {
+
+
+      $.ajax({
+            type: "PUT",
+            url: "https://sidhy-33818.firebaseio.com/.json",
+            async: false,
+            data: JSON.stringify({"confidence":{"1-25":0,"25-50":0,"50-75":0,"75-100":0},"question":["0"],"votes":{"A":0,"B":0,"C":0,"D":0}}),
+            contentType: "application/json",
+            complete: function (data) {
+            console.log(data);
+            wait = false;
+        }
+    });
+    alert("Data has been reset!!")
+    location.reload()
+    }
+    </script>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" type="text/css" media="screen" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" />
     <script src="/static/vendor/jquery/jquery.min.js"></script>
@@ -23,7 +42,7 @@
 <body background="http://backgrounddownload.com/wp-content/uploads/2018/09/powerpoint-background-student-3.jpg">
     <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
         <div class="container-fluid">
-                <a class="navbar-brand" href="#"><strong>Doux</strong></a>
+                <a class="navbar-brand" href="#"><strong>Sidhy</strong></a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
                 aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
@@ -36,10 +55,8 @@
                     </li>
                 </ul>
                 <ul class="navbar-nav ml-auto">
-                    <form action="#" method="post" class="form-inline my-2 my-lg-0 ml-auto">
-                        <input class="form-control mr-sm-2" name="search_query" type="search" placeholder="Search" aria-label="Search">
-                        <button class="btn btn-outline-dark my-2 my-sm-0" type="submit">Search</button>
-                    </form>
+                        <button id="reset" class="btn btn-outline-dark my-2 my-sm-0" type="submit" onclick="myFunction()">Reset</button>
+
                 </ul>
             </div>    
         </div>
@@ -60,7 +77,7 @@
         </div>
 
 
-    <!-- /.row -->
+
 
 </div>
 <!-- /.container -->
@@ -71,7 +88,7 @@
         <div class="container-fluid text-center text-md-left">
         </div>
         <div class="footer-copyright text-center py-3">© 2019 Copyright:
-            <a href="https://www.google.com/"> HAHA LOL</a>
+            <a href="https://www.google.com/"> Sidhy Co</a>
         </div>
     </footer>
     <!-- Footer -->

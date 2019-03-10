@@ -10,7 +10,7 @@ class Heading extends StatelessWidget {
     return Padding(child: Text(
       text,
       style:
-          TextStyle(fontSize: 24.0, fontWeight: FontWeight.bold, color: color),
+          TextStyle(fontSize: 16.0, fontWeight: FontWeight.bold, color: color),
     ), padding: EdgeInsets.all(20.0),
     );
   }
