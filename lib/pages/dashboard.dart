@@ -132,7 +132,7 @@ class _DashBoardState extends State<DashBoard> {
         child: ListTile(
           title: Container(
             height: 100.0,
-            child: Heading("Theory Of Computation", size: 28.0,),
+            child: Heading("Theory Of Computation", size: 25.0,),
           ),
           trailing: Heading("3:00 pm", size: 34.0, wt: FontWeight.normal,),
         ),
