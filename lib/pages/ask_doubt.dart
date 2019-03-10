@@ -44,7 +44,7 @@ class _AskDoubtState extends State<AskDoubt> {
           children: <Widget>[
             SizedBox(height: 10.0),
             Text(
-              "Send Your Confidence Level",
+              "Send Your Concept Understanding Level",
               style: TextStyle(fontSize: 18.0),
             ),
             SizedBox(height: 100.0),
