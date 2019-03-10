@@ -14,15 +14,15 @@
             type: "PUT",
             url: "https://sidhy-33818.firebaseio.com/.json",
             async: false,
-            data: JSON.stringify({"confidence":{"1-25":0,"25-50":0,"50-75":0,"75-100":0},"question":[""],"votes":{"A":0,"B":0,"C":0,"D":0}}),
+            data: JSON.stringify({"confidence":{"1-25":0,"25-50":0,"50-75":0,"75-100":0},"question":["0"],"votes":{"A":0,"B":0,"C":0,"D":0}}),
             contentType: "application/json",
             complete: function (data) {
             console.log(data);
             wait = false;
         }
     });
-    alert("fsjd")
-
+    alert("Data has been reset!!")
+    location.reload()
     }
     </script>
     <meta name="viewport" content="width=device-width, initial-scale=1">

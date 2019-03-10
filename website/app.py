@@ -5,7 +5,9 @@ from config import *
 import requests
 import pygal
 import sys
-
+import json
+reload(sys)
+sys.setdefaultencoding('utf8')
 from flask import Flask
 
 
@@ -46,6 +48,27 @@ def dashboard(methods=['GET','POST','PUT']):
     
     bar_chart.x_labels = sorted(list(confidence.keys()))
     bar_chart.add('Confidence', imp_temps)
+    return render_template("index.html",bar_chart=bar_chart,questions=enumerate(question),pie_chart=pie_char)
 
-    return render_template("index.html",bar_chart=bar_chart,questions=question,pie_chart=pie_char)
+
+@app.route('/delete/<int:qid>')
+def delete_post(qid):
+    uri = "https://sidhy-33818.firebaseio.com/.json"
+    try:
+        uResponse = requests.get(uri)
+    except requests.ConnectionError:
+        return "Connection Error"
+    Jresponse = uResponse.text
+    data = json.loads(Jresponse)
+
+    confidence = data['confidence']  # <-- The display name
+    question = data['question']  # <-- The reputation
+
+    votes = data['votes']
+
+    question[qid]='0'
+    print(data)
+    r = requests.put("https://sidhy-33818.firebaseio.com/.json",data=json.dumps(data))
+    print(r.text)
+    return redirect('/')    
 
