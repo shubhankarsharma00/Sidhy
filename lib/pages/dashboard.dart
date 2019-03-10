@@ -42,7 +42,8 @@ class _DashBoardState extends State<DashBoard> {
             icon: Icon(Icons.add),
             onPressed: () {
               showDialog(
-                  context: context, builder: (BuildContext context) => AlertDialoge());
+                  context: context,
+                  builder: (BuildContext context) => AlertDialoge());
             },
           )
         ],
@@ -55,12 +56,12 @@ class _DashBoardState extends State<DashBoard> {
               UserAccountsDrawerHeader(
                 decoration:
                     BoxDecoration(color: Theme.Colors.primaryColorDarker),
-                accountName: Text("ABCD"),
-                accountEmail: Text("abcd@gmail.com"),
+                accountName: Text("User"),
+                accountEmail: Text(widget.auth.currentUser().email),
                 currentAccountPicture: CircleAvatar(
                   backgroundColor: Theme.Colors.darkColor,
                   child: Text(
-                    "A",
+                    widget.auth.currentUser().email.substring(0, 1),
                     style: TextStyle(fontSize: 40.0),
                   ),
                 ),
@@ -85,8 +86,10 @@ class _DashBoardState extends State<DashBoard> {
                 trailing: Icon(Icons.arrow_forward),
                 onTap: () {
                   Navigator.pop(context);
-                   showDialog(
-                  context: context, builder: (BuildContext context) => AlertDialoge());
+                  showDialog(
+                    context: context,
+                    builder: (BuildContext context) => AlertDialoge(),
+                  );
                 },
               ),
             ],
