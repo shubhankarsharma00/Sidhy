@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import '../widgets/newsfeed.dart';
 import '../widgets/heading.dart';
 import '../widgets/charts.dart';
 import '../auth.dart';
@@ -19,10 +20,7 @@ class DashBoard extends StatefulWidget {
 
 class _DashBoardState extends State<DashBoard> {
   Widget alertDialog =AlertDialoge();
-  final List<String> newsfeed = [
-    "Math Class at 2:30 PM cancelled!",
-    "Football Match at 6PM today"
-  ];
+
 
   @override
   Widget build(BuildContext context) {
@@ -113,11 +111,7 @@ class _DashBoardState extends State<DashBoard> {
   }
 
   Widget _newsFeed() {
-    return Column(
-      children: newsfeed.map((String news) {
-        return Card(child: ListTile(title: Heading(news)));
-      }).toList(),
-    );
+    return NewsFeed();
   }
 
   Widget _bottomWave() {
