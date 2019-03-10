@@ -4,6 +4,7 @@ import './pages/login_page.dart';
 import './auth.dart';
 import './pages/ask_doubt.dart';
 import './pages/admin_post.dart';
+import './pages/attendance.dart';
 
 void main() => runApp(MyApp());
 
@@ -30,6 +31,7 @@ class MyApp extends StatelessWidget {
         '/dashboard': (context) => DashBoard(auth),
         '/askdoubt' : (context) => AskDoubt(),
         '/adminpost' : (context) => AdminPost(),
+        '/attendance' : (context) => AttendancePage(),
       },
     );
   }

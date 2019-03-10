@@ -110,7 +110,7 @@ class _DashBoardState extends State<DashBoard> {
               "Stats",
               color: Theme.Colors.lightColor,
             ),
-            _stats(),
+            _stats(context),
             Heading(
               "News Feed",
               color: Theme.Colors.lightColor,
@@ -141,7 +141,7 @@ class _DashBoardState extends State<DashBoard> {
     );
   }
 
-  Widget _stats() {
+  Widget _stats(BuildContext context) {
     return InkWell(
       child: Card(
         child: Column(
@@ -156,7 +156,9 @@ class _DashBoardState extends State<DashBoard> {
           ],
         ),
       ),
-      onTap: () {},
+      onTap: () {
+        Navigator.pushNamed(context, "/attendance");
+      },
     );
   }
 

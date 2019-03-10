@@ -73,8 +73,13 @@ class ChartDisplay extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      child: BarChart(
-        _series(),
+      child: InkWell(
+        child: BarChart(
+          _series(),
+        ),
+        onTap: () {
+          Navigator.pushNamed(context, '/attendance');
+        },
       ),
       height: 300.0,
     );
