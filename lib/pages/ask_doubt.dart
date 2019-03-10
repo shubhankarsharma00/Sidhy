@@ -27,8 +27,8 @@ class _AskDoubtState extends State<AskDoubt> {
         child: ListView(
           padding: EdgeInsets.all(10.0),
           children: <Widget>[
-            _confidenceCard(),
             MCQCard(),
+            _confidenceCard(),
             _doubtCard(),
           ],
         ),
