@@ -28,8 +28,6 @@ class _AskDoubtState extends State<AskDoubt> {
           padding: EdgeInsets.all(10.0),
           children: <Widget>[
             _confidenceCard(),
-            // TODO: Check from background if question asked
-            // and show only then. Also implement timer
             MCQCard(),
             _doubtCard(),
           ],

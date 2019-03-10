@@ -152,7 +152,7 @@ class _DashBoardState extends State<DashBoard> {
                 child: Heading("Attendance Count"),
               ),
             ),
-            ChartWidget(),
+            // ChartWidget(),
           ],
         ),
       ),
